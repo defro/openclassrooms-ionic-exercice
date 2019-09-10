@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavParams, ViewController} from 'ionic-angular';
 import {CD} from "../../../models/CD";
 import {MediaService} from "../../../services/media.service";
@@ -7,7 +7,7 @@ import {MediaService} from "../../../services/media.service";
   selector: 'page-lend-cd',
   templateUrl: 'lend-cd.html',
 })
-export class LendCdPage {
+export class LendCdPage implements OnInit {
 
   index: number;
   cd: CD;
@@ -29,7 +29,7 @@ export class LendCdPage {
   }
 
   onToggleLend() {
-    this.mediaService.toggleCDLendStatus(this.index);
+    this.mediaService.toggleLendStatus('cd', this.index);
   }
 
 }

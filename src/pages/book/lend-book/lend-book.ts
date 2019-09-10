@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NavParams, ViewController} from 'ionic-angular';
 import {Book} from "../../../models/Book";
 import {MediaService} from "../../../services/media.service";
@@ -7,7 +7,7 @@ import {MediaService} from "../../../services/media.service";
   selector: 'page-lend-book',
   templateUrl: 'lend-book.html',
 })
-export class LendBookPage {
+export class LendBookPage implements OnInit{
 
   index: number;
   book: Book;
@@ -29,7 +29,7 @@ export class LendBookPage {
   }
 
   onToggleLend() {
-    this.mediaService.toggleBookLendStatus(this.index);
+    this.mediaService.toggleLendStatus('book', this.index);
   }
 
 }

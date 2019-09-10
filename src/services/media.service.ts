@@ -36,12 +36,14 @@ export class MediaService {
     }
   ];
 
-  toggleBookLendStatus(index: number) {
-    this.books[index].isLent = !this.books[index].isLent;
-  }
-
-  toggleCDLendStatus(index: number) {
-    this.cds[index].isLent = !this.cds[index].isLent;
+  toggleLendStatus(scope: string, index: number) {
+    if ('cd' === scope) {
+      this.cds[index].isLent = !this.cds[index].isLent;
+    } else if ('book' === scope) {
+      this.books[index].isLent = !this.books[index].isLent;
+    } else {
+      console.error('Le scope "' + scope + '" n\'est pas connu. Merci de choisir book ou cd.');
+    }
   }
 
 }
