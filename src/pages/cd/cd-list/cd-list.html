@@ -10,5 +10,19 @@
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item icon-start
+              *ngFor="let cd of cds; let i = index"
+              [ngClass]="{'is-lent': cd.isLent, 'is-not-lent': !cd.isLent}"
+              (click)="onLoad(i)">
+      <ion-icon item-start
+                name="disc"
+                [color]="cd.isLent ? 'danger' : 'secondary'"></ion-icon>
+      <h2>{{cd.name}}</h2>
+      <p>{{cd.author}}</p>
+      <ion-note [ngClass]="{'lent-status': true}">
+        {{ cd.isLent ? 'emprunté': 'rendu' }}
+      </ion-note>
+    </ion-item>
+  </ion-list>
 </ion-content>

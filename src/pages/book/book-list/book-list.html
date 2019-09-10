@@ -12,13 +12,17 @@
 <ion-content padding>
   <ion-list>
     <ion-item icon-start
-              [ngClass]="{'is-lent': book.isLent, 'is-not-lent': !book.isLent}"
               *ngFor="let book of books; let i = index"
+              [ngClass]="{'is-lent': book.isLent, 'is-not-lent': !book.isLent}"
               (click)="onLoad(i)">
-      <ion-icon item-start name="book" [color]="book.isLent ? 'danger' : 'secondary'"></ion-icon>
+      <ion-icon item-start
+                name="book"
+                [color]="book.isLent ? 'danger' : 'secondary'"></ion-icon>
       <h2>{{book.name}}</h2>
       <p>{{book.author}}</p>
-      <ion-note [ngClass]="{'lent-status': true}">{{ book.isLent ? 'emprunté': 'rendu' }}</ion-note>
+      <ion-note [ngClass]="{'lent-status': true}">
+        {{ book.isLent ? 'emprunté': 'rendu' }}
+      </ion-note>
     </ion-item>
   </ion-list>
 </ion-content>
