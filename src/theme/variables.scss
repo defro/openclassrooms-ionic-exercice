@@ -34,11 +34,13 @@ $app-direction: ltr;
 // The "primary" color is the only required color in the map.
 
 $colors: (
-  primary:    #488aff,
-  secondary:  #32db64,
-  danger:     #f53d3d,
-  light:      #f4f4f4,
-  dark:       #222
+  primary:      #488aff,
+  secondary:    #32db64,
+  danger:       #f53d3d,
+  light:        #f4f4f4,
+  dark:         #222,
+  is-lent:      #ffe4e1,
+  is-not-lent:  #eafbdf
 );
 
 
@@ -86,3 +88,18 @@ $colors: (
 
 @import "roboto";
 @import "noto-sans";
+
+
+// Styles partagés
+// --------------------------------------------------
+ion-item.is-lent {
+  background-color: color($colors, is-lent);
+}
+ion-item.is-not-lent {
+  background-color: color($colors, is-not-lent);
+}
+.lent-status {
+  font-size: 12px;
+  align-self: flex-start;
+  margin-top: 14px;
+}
