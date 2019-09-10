@@ -1,14 +1,38 @@
 <ion-header>
-  <ion-navbar>
+  <ion-navbar color="light">
+    <ion-buttons start>
+      <button ion-button icon-only (click)="onToggleMenu()">
+        <ion-icon name="menu"></ion-icon>
+      </button>
+    </ion-buttons>
     <ion-title>
-      Ionic Blank
+      Médiathèque
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-  The world is your oyster.
-  <p>
-    If you get lost, the <a href="http://ionicframework.com/docs/v2">docs</a> will be your guide.
-  </p>
+  <ion-card>
+    <img src="assets/imgs/adorable-blur-bookcase-261895.jpg" alt="Médiathèque" />
+    <small>Photo by Pixabay from Pexels</small>
+    <ion-card-content>
+      <ion-card-title>
+        Bienvenue
+      </ion-card-title>
+      <p>
+        Cette application Ionic de gestion d'une librairie de livres et CDs est la première activité du cours
+        <a href="https://openclassrooms.com/fr/courses/5098931-developpez-une-application-mobile-multiplateforme-avec-ionic-3">
+          Développez une application mobile multiplateforme avec Ionic 3</a>
+        par OpenClassRooms.
+      </p>
+    </ion-card-content>
+    <ion-row no-padding>
+      <ion-col>
+        <button ion-button clear small color="info" icon-start>
+          <ion-icon name="contact"></ion-icon>
+          &copy; 2019 <a href="https://defro.github.io">Joël Gaujard</a>
+        </button>
+      </ion-col>
+    </ion-row>
+  </ion-card>
 </ion-content>
