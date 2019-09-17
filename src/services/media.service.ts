@@ -1,3 +1,5 @@
+import {Book} from "../models/Book";
+
 export class MediaService {
 
   cds = [
@@ -10,7 +12,8 @@ export class MediaService {
     {
       name: "Legend",
       author: "Bob Marley and the Wailers",
-      isLent: false
+      isLent: false,
+      borrower: ""
     },
     {
       name: "The Dark Side of the Moon",
@@ -46,6 +49,16 @@ export class MediaService {
       this.cds[index].isLent = !this.cds[index].isLent;
     } else if ('book' === scope) {
       this.books[index].isLent = !this.books[index].isLent;
+    } else {
+      console.error('Le scope "' + scope + '" n\'est pas connu. Merci de choisir book ou cd.');
+    }
+  }
+
+  addBorrower(scope: string, index: number, borrower: string) {
+    if ('cd' === scope) {
+      this.cds[index].borrower = borrower;
+    } else if ('book' === scope) {
+      this.books[index].borrower = borrower;
     } else {
       console.error('Le scope "' + scope + '" n\'est pas connu. Merci de choisir book ou cd.');
     }

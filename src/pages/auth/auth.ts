@@ -14,11 +14,13 @@ export class AuthPage implements OnInit {
   errorMessage: string;
   authForm: FormGroup;
 
-  constructor(private authService: AuthService,
-              private navParams: NavParams,
-              private menuCtrl: MenuController,
-              private navCtrl: NavController,
-              private formBuilder: FormBuilder) {}
+  constructor(
+    private authService: AuthService,
+    private navParams: NavParams,
+    private menuCtrl: MenuController,
+    private navCtrl: NavController,
+    private formBuilder: FormBuilder
+  ) {}
 
   ngOnInit() {
     this.mode = this.navParams.get('mode');
