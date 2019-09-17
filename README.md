@@ -11,4 +11,12 @@ Ce dépôt contient mon travail pour les exercices du cours sur Ionic par OpenCl
    - executez la commande `ionic serve`
  - depuis un navigateur, vous rendre à l'URL http://localhost:8100
 
-N'hésitez pas à me faire un retour en créeant une [nouvelle issue](https://github.com/defro/openclassrooms-ionic-exercice/issues/new).
+## Mon rendu aux exercices
+
+### Exercice 1
+
+L'archive que j'ai rendu est téléchargeable depuis la release [first-exercice](https://github.com/defro/openclassrooms-ionic-exercice/releases/tag/first-exercice). 
+
+### Exercice 2
+
+L'archive que j'ai rendu est téléchargeable depuis la release [second-exercice](https://github.com/defro/openclassrooms-ionic-exercice/releases/tag/second-exercice).
