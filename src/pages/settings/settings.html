@@ -10,5 +10,22 @@
 </ion-header>
 
 <ion-content padding>
-  <p>Cette page contiendra des options.</p>
+  <ion-list no-lines>
+    <ion-item>
+      <button ion-button block round large
+              (click)="onSave()"
+              color="secondary">
+        <ion-icon name="save"></ion-icon>
+        Sauvegarde des données
+      </button>
+    </ion-item>
+    <ion-item>
+      <button ion-button block round large
+              (click)="onRestore()"
+              color="primary">
+        <ion-icon name="reset"></ion-icon>
+        Restauration des données
+      </button>
+    </ion-item>
+  </ion-list>
 </ion-content>

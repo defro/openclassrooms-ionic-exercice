@@ -1,6 +1,13 @@
+import DataSnapshot = firebase.database.DataSnapshot;
+import firebase from "firebase";
+import {Subject} from "rxjs";
 import {Book} from "../models/Book";
+import {CD} from "../models/CD";
 
 export class MediaService {
+
+  books$ = new Subject<Book[]>();
+  cds$ = new Subject<CD[]>();
 
   cds = [
     {
@@ -62,6 +69,42 @@ export class MediaService {
     } else {
       console.error('Le scope "' + scope + '" n\'est pas connu. Merci de choisir book ou cd.');
     }
+  }
+
+  emitBooks() {
+    this.books$.next(this.books.slice());
+    this.cds$.next(this.cds.slice());
+  }
+
+  saveData() {
+    return new Promise((resolve, reject) => {
+      firebase.database().ref('media').set({
+        books: this.books,
+        cds: this.cds
+      }).then(
+        (data: DataSnapshot) => {
+          resolve(data);
+        },
+        (error) => {
+          reject(error);
+        }
+      );
+    });
+  }
+
+  retrieveData() {
+    return new Promise((resolve, reject) => {
+      firebase.database().ref('media').once('value').then(
+        (data: DataSnapshot) => {
+          this.books = data.val().books;
+          this.cds = data.val().cds;
+          this.emitBooks();
+          resolve('Données récupérées avec succès !');
+        }, (error) => {
+          reject(error);
+        }
+      );
+    });
   }
 
 }
