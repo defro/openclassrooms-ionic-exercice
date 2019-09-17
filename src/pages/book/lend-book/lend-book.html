@@ -42,7 +42,10 @@
     <ion-list>
       <ion-item>
         <ion-label floating>Nom de l'emprunteur</ion-label>
-        <ion-input type="text" formControlName="name"></ion-input>
+        <ion-input type="text"
+                   formControlName="name"
+                   [value]="book.borrower"
+        ></ion-input>
       </ion-item>
     </ion-list>
     <button ion-button full

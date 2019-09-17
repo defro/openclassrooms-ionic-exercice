@@ -14,7 +14,7 @@
     <ion-item>
       <button ion-button block round large
               (click)="onSave()"
-              color="secondary">
+              color="danger">
         <ion-icon name="save"></ion-icon>
         Sauvegarde des données
       </button>
@@ -28,4 +28,22 @@
       </button>
     </ion-item>
   </ion-list>
+  <ion-card>
+    <ion-card-title>
+      <ion-icon name="help-buoy"></ion-icon>
+      Plan de secours
+    </ion-card-title>
+    <ion-card-content>
+      Si vous n'avez aucune donnée cela est surement du à
+      un écrasement hasardeux de la base de données,
+      ou à un manque de connexion internet, ou autre.<br/>
+      Vous pouvez télécharger des données de secours.
+      <ion-list>
+        <ion-item (click)="onLoadFixtures()">
+          <ion-icon name="download"></ion-icon>
+          Chargez un exemple de livre et de CD.
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
 </ion-content>

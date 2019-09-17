@@ -103,3 +103,8 @@ ion-item.is-not-lent {
   align-self: flex-start;
   margin-top: 14px;
 }
+
+.empty-list, .empty-list * {
+  background-color: color($colors, dark);
+  color: color($colors, light);
+}

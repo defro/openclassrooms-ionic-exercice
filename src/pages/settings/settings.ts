@@ -71,4 +71,13 @@ export class SettingsPage {
     );
   }
 
+  onLoadFixtures() {
+    this.mediaService.fixtures();
+    this.toastCtrl.create({
+      message: 'Données de sauvegarde chargées !',
+      duration: 3000,
+      position: 'bottom'
+    }).present();
+  }
+
 }

@@ -15,6 +15,7 @@ import {TabsPage} from "../pages/tabs/tabs";
 import {MediaService} from "../services/media.service";
 import {AuthService} from "../services/auth.service";
 import {AuthPage} from "../pages/auth/auth";
+import {IonicStorageModule} from "@ionic/storage";
 
 @NgModule({
   declarations: [
@@ -30,7 +31,8 @@ import {AuthPage} from "../pages/auth/auth";
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
