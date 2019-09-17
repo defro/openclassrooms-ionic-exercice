@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 
 import {TabsPage} from "../pages/tabs/tabs";
 import {SettingsPage} from "../pages/settings/settings";
+import {AuthPage} from "../pages/auth/auth";
 
 import firebase from "firebase";
 
@@ -14,6 +15,10 @@ import firebase from "firebase";
 export class MyApp {
   tabsPage: any = TabsPage;
   settingsPage: any = SettingsPage;
+  authPage: any = AuthPage;
+
+  isAuth: boolean = false;
+
   @ViewChild('content') content: NavController;
 
   constructor(
@@ -36,11 +41,28 @@ export class MyApp {
         appId: "1:378257970416:web:d0a6d1a78e8d73c6b59e35"
       };
       firebase.initializeApp(firebaseConfig);
+
+      firebase.auth().onAuthStateChanged(
+        (user) => {
+          if (user) {
+            this.isAuth = true;
+            this.content.setRoot(TabsPage);
+          } else {
+            this.isAuth = false;
+            this.content.setRoot(AuthPage, {mode: 'connect'});
+          }
+        }
+      );
     });
   }
 
-  public onNavigate(page: any) {
-    this.content.setRoot(page);
+  onDisconnect() {
+    firebase.auth().signOut();
+    this.menuCtrl.close();
+  }
+
+  onNavigate(page: any, data?: {}) {
+    this.content.setRoot(page, data ? data : null);
     this.menuCtrl.close();
   }
 

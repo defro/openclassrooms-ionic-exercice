@@ -13,6 +13,8 @@ import {LendCdPage} from "../pages/cd/lend-cd/lend-cd";
 import {SettingsPage} from "../pages/settings/settings";
 import {TabsPage} from "../pages/tabs/tabs";
 import {MediaService} from "../services/media.service";
+import {AuthService} from "../services/auth.service";
+import {AuthPage} from "../pages/auth/auth";
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import {MediaService} from "../services/media.service";
     CdListPage,
     LendCdPage,
     SettingsPage,
-    TabsPage
+    TabsPage,
+    AuthPage
   ],
   imports: [
     BrowserModule,
@@ -38,13 +41,15 @@ import {MediaService} from "../services/media.service";
     CdListPage,
     LendCdPage,
     SettingsPage,
-    TabsPage
+    TabsPage,
+    AuthPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    MediaService
+    MediaService,
+    AuthService
   ]
 })
 export class AppModule {}
