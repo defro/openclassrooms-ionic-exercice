@@ -6,6 +6,8 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import {TabsPage} from "../pages/tabs/tabs";
 import {SettingsPage} from "../pages/settings/settings";
 
+import firebase from "firebase";
+
 @Component({
   templateUrl: 'app.html'
 })
@@ -23,6 +25,17 @@ export class MyApp {
     platform.ready().then(() => {
       statusBar.styleDefault();
       splashScreen.hide();
+
+      let firebaseConfig = {
+        apiKey: "AIzaSyCzWBnoNtUjik0sIYj-rtn2l1Q49Op4h7A",
+        authDomain: "open-classrooms-ionic-exercice.firebaseapp.com",
+        databaseURL: "https://open-classrooms-ionic-exercice.firebaseio.com",
+        projectId: "open-classrooms-ionic-exercice",
+        storageBucket: "",
+        messagingSenderId: "378257970416",
+        appId: "1:378257970416:web:d0a6d1a78e8d73c6b59e35"
+      };
+      firebase.initializeApp(firebaseConfig);
     });
   }
 
