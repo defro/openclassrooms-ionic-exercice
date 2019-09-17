@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {MenuController, NavController, NavParams} from 'ionic-angular';
+import {LoadingController, MenuController, NavController, NavParams, ToastController} from 'ionic-angular';
 import {MediaService} from "../../services/media.service";
 
 @Component({
@@ -12,18 +12,63 @@ export class SettingsPage {
     public navCtrl: NavController,
     public navParams: NavParams,
     private menuCtrl: MenuController,
-    private mediaService: MediaService
+    private mediaService: MediaService,
+    private loadingCtrl: LoadingController,
+    private toastCtrl: ToastController
   ) {}
 
   public onToggleMenu() {
     this.menuCtrl.open();
   }
 
-  onSave() {
-    this.mediaService.saveData();
+  onRestore() {
+    let loader = this.loadingCtrl.create({
+      content: 'Récupération des données en cours...'
+    });
+    loader.present();
+    this.mediaService.retrieveData().then(
+      () => {
+        loader.dismiss();
+        this.toastCtrl.create({
+          message: 'Données récupérées !',
+          duration: 3000,
+          position: 'bottom'
+        }).present();
+      },
+      (error) => {
+        loader.dismiss();
+        this.toastCtrl.create({
+          message: error,
+          duration: 3000,
+          position: 'bottom'
+        }).present();
+      }
+    );
   }
 
-  onRestore() {
-    this.mediaService.retrieveData();
+  onSave() {
+    let loader = this.loadingCtrl.create({
+      content: 'Sauvegarde en cours...'
+    });
+    loader.present();
+    this.mediaService.saveData().then(
+      () => {
+        loader.dismiss();
+        this.toastCtrl.create({
+          message: 'Données sauvegardées !',
+          duration: 3000,
+          position: 'bottom'
+        }).present();
+      },
+      (error) => {
+        loader.dismiss();
+        this.toastCtrl.create({
+          message: error,
+          duration: 3000,
+          position: 'bottom'
+        }).present();
+      }
+    );
   }
+
 }
