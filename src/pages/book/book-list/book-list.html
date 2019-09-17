@@ -21,7 +21,7 @@
       <h2>{{book.name}}</h2>
       <p>{{book.author}}</p>
       <ion-note [ngClass]="{'lent-status': true}">
-        {{ book.isLent ? 'emprunté': 'rendu' }}
+        {{ book.isLent ? 'emprunté par ' + book.borrower : 'rendu' }}
       </ion-note>
     </ion-item>
   </ion-list>

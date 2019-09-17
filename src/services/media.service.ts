@@ -4,7 +4,8 @@ export class MediaService {
     {
       name: "Thriller",
       author: "Michael Jackson",
-      isLent: true
+      isLent: true,
+      borrower: "Bruno Mars"
     },
     {
       name: "Legend",
@@ -14,7 +15,8 @@ export class MediaService {
     {
       name: "The Dark Side of the Moon",
       author: "Pink Floyd",
-      isLent: true
+      isLent: true,
+      borrower: "Un inconnu"
     }
   ];
 
@@ -22,17 +24,20 @@ export class MediaService {
     {
       name: "La Bible",
       author: "Dieu",
-      isLent: true
+      isLent: true,
+      borrower: "Jésus"
     },
     {
       name: "Le Coran",
       author: "Allah",
-      isLent: true
+      isLent: true,
+      borrower: "Mahomet"
     },
     {
       name: "La Torah",
       author: "Yahvé",
-      isLent: true
+      isLent: true,
+      borrower: "Abraham"
     }
   ];
 
