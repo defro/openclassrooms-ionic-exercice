@@ -10,7 +10,14 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-list>
+  <ion-card *ngIf="isEmpty()" class="empty-list">
+    <ion-card-content>
+      La liste des CDs semble belle et bien vide.<br/>
+      Chargez un exemple de CDs depuis la page
+      "<a [navPush]="settingsPage">Options</a>".
+    </ion-card-content>
+  </ion-card>
+  <ion-list *ngIf="!isEmpty()">
     <ion-item icon-start
               *ngFor="let cd of cds; let i = index"
               [ngClass]="{'is-lent': cd.isLent, 'is-not-lent': !cd.isLent}"

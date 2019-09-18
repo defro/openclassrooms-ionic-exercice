@@ -10,14 +10,14 @@
 </ion-header>
 
 <ion-content padding>
-  <ion-card *ngIf="!books || !books.length" class="empty-list">
+  <ion-card *ngIf="isEmpty()" class="empty-list">
     <ion-card-content>
       La liste des livres semble belle et bien vide.<br/>
       Chargez un exemple de livres depuis la page
       "<a [navPush]="settingsPage">Options</a>".
     </ion-card-content>
   </ion-card>
-  <ion-list *ngIf="books">
+  <ion-list *ngIf="!isEmpty()">
     <ion-item icon-start
               *ngFor="let book of books; let i = index"
               [ngClass]="{'is-lent': book.isLent, 'is-not-lent': !book.isLent}"

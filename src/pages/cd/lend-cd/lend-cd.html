@@ -38,4 +38,19 @@
       </ion-row>
     </ion-grid>
   </ion-card>
+  <form [formGroup]="myForm" [hidden]="!cd.isLent">
+    <ion-list>
+      <ion-item>
+        <ion-label floating>Nom de l'emprunteur</ion-label>
+        <ion-input type="text"
+                   formControlName="name"
+                   [value]="cd.borrower"
+        ></ion-input>
+      </ion-item>
+    </ion-list>
+    <button ion-button full
+            (click)="onSubmitForm()"
+            [disabled]="!myForm.valid"
+    >Soumettre</button>
+  </form>
 </ion-content>

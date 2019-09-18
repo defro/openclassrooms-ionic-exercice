@@ -14,7 +14,7 @@ export class BookListPage implements OnInit, OnDestroy{
 
   settingsPage = SettingsPage;
   books: Book[];
-  private bookSubscription: Subscription;
+  private subscription: Subscription;
 
   constructor(
     private mediaService: MediaService,
@@ -23,8 +23,10 @@ export class BookListPage implements OnInit, OnDestroy{
   ) {
   }
 
-  ngOnInit(): void {
-    this.bookSubscription = this.mediaService.books$.subscribe(
+  ngOnInit(): void {}
+
+  ionViewWillEnter(): void {
+    this.subscription = this.mediaService.books$.subscribe(
       (books: Book[]) => {
         this.books = books.slice();
       },
@@ -35,12 +37,12 @@ export class BookListPage implements OnInit, OnDestroy{
     this.mediaService.emitAll();
   }
 
-  ngOnDestroy(): void {
-    this.bookSubscription.unsubscribe();
+  isEmpty() {
+    return (!this.books || !this.books.length);
   }
 
-  ionViewWillEnter() {
-    //this.books = this.mediaService.books.slice();
+  ngOnDestroy(): void {
+    this.subscription.unsubscribe();
   }
 
   public onLoad(index: number) {

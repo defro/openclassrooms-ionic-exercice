@@ -25,11 +25,8 @@ export class MediaService {
     this.storage.get('media').then(
       (list) => {
         if (list) {
-          console.log(list);
           this.books = list.books.slice();
           this.cds = list.cds.slice();
-        } else {
-          console.error('No LIST in storage', list, list.length);
         }
         this.emitAll();
       }
